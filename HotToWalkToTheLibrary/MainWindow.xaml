@@ -1,0 +1,114 @@
+﻿<Window x:Class="HotToWalkToTheLibrary.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotToWalkToTheLibrary"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Title="MainWindow" Height="720" Width="1280" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+    <Border Background="{DynamicResource DarkGray}" CornerRadius="25">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Width="295.4" Height="720" Background="{DynamicResource DarkGrayLighter}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Border Grid.Row="0" Background="{DynamicResource DarkBlue}" Width="180" Height="50" Margin="-20 -50 0 0" CornerRadius="25" VerticalAlignment="Center" HorizontalAlignment="Left">
+                <TextBlock  Text="Приложение ВМБ" VerticalAlignment="Center" Foreground="{DynamicResource WhiteBlue}" FontSize="16" Margin="0 22 0 0" HorizontalAlignment="Center"/>
+            </Border>
+            <Image Grid.Row="0" Name="CloseButton" Source="Resources\Закрыть.png" HorizontalAlignment="Right" Height="30" Margin="0 0 10 0" MouseEnter="Image_MouseEnter" MouseLeftButtonDown="CloseButton_MouseLeftButtonDown" MouseLeave="CloseButton_MouseLeave"/>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.3*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="75"/>
+                        <RowDefinition Height="75"/>
+                        <RowDefinition Height="75"/>
+                        <RowDefinition Height="75"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="150"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Width="295.4" Height="720" Background="{DynamicResource DarkGrayLighter}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Border Grid.Row="1" Width="295.4" Height="720" Background="{DynamicResource DarkGrayLighter}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Border Grid.Row="2" Width="295.4" Height="720" Background="{DynamicResource DarkGrayLighter}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Border Grid.Row="3" Width="295.4" Height="720" Background="{DynamicResource DarkGrayLighter}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Border Grid.Row="4" Width="295.4" Height="720" Background="{DynamicResource DarkGrayLighter}" HorizontalAlignment="Left" VerticalAlignment="Top">
+      
+                    </Border>
+                    <Border Grid.Row="5" Width="295.4" Height="720" Background="{DynamicResource DarkGrayLighter}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Border x:Name="Абонемент" Grid.Row="0" CornerRadius="30" Margin="-100,0,0,0" Height="60" Width="350" Background="{DynamicResource WhiteBlue}" MouseLeftButtonDown="Абонемент_MouseLeftButtonDown">
+                        <TextBlock x:Name="Атекст" Background="Transparent" Text="Абонемент" Foreground="{DynamicResource DarkGrayLighter}" FontSize="36" FontFamily="Calibri" 
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="75 0 0 0"/>
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="Border.MouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard Storyboard.TargetName="Абонемент">
+                                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" BeginTime="00:00:00" AccelerationRatio="0.4" DecelerationRatio="0.6">
+                                            <SplineThicknessKeyFrame KeyTime="00:00:00" Value="-100,0,0,0" />
+                                            <SplineThicknessKeyFrame KeyTime="00:00:00.300" Value="-70,0,0,0" />
+                                        </ThicknessAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Border.Triggers>
+                    </Border>
+                    <Border x:Name="Должники" Grid.Row="1" CornerRadius="30" Margin="-100 0 0 0" Height="60" Width="350" Background="{DynamicResource WhiteBlue}" MouseLeftButtonDown="Должники_MouseLeftButtonDown">
+                        <TextBlock x:Name="Дтекст" Background="Transparent" Text="Должники" Foreground="{DynamicResource DarkGrayLighter}" FontSize="36" FontFamily="Calibri" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="75 0 0 0"/>
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="Border.MouseLeftButtonDown">
+                                <BeginStoryboard>
+                                    <Storyboard Storyboard.TargetName="Должники">
+                                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" BeginTime="00:00:00" AccelerationRatio="0.4" DecelerationRatio="0.6">
+                                            <SplineThicknessKeyFrame KeyTime="00:00:00" Value="-100,0,0,0" />
+                                            <SplineThicknessKeyFrame KeyTime="00:00:00.300" Value="-70,0,0,0" />
+                                        </ThicknessAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Border.Triggers>
+                    </Border>
+                    <Border x:Name="Читатели" Grid.Row="2" CornerRadius="30" Margin="-100 0 0 0" Height="60" Width="350" Background="{DynamicResource WhiteBlue}" MouseLeftButtonDown="Читатели_MouseLeftButtonDown">
+                        <TextBlock x:Name="Чтекст" Background="Transparent" Text="Читатели" Foreground="{DynamicResource DarkGrayLighter}" FontSize="36" FontFamily="Calibri" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="75 0 0 0"/>
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="Border.MouseLeftButtonDown">
+                                <BeginStoryboard>
+                                    <Storyboard Storyboard.TargetName="Читатели">
+                                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" BeginTime="00:00:00" AccelerationRatio="0.4" DecelerationRatio="0.6">
+                                            <SplineThicknessKeyFrame KeyTime="00:00:00" Value="-100,0,0,0" />
+                                            <SplineThicknessKeyFrame KeyTime="00:00:00.300" Value="-70,0,0,0" />
+                                        </ThicknessAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                    
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Border.Triggers>
+                    </Border>
+                    <Border x:Name="Книги" Grid.Row="3" CornerRadius="30" Margin="-100 0 0 0" Height="60" Width="350" Background="{DynamicResource WhiteBlue}" MouseLeftButtonDown="Книги_MouseLeftButtonDown">
+                        <TextBlock x:Name="Ктекст" Background="Transparent" Text="Книги" Foreground="{DynamicResource DarkGrayLighter}" FontSize="36" FontFamily="Calibri" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="75 0 0 0"/>
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="Border.MouseLeftButtonDown">
+                                <BeginStoryboard>
+                                    <Storyboard Storyboard.TargetName="Книги">
+                                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" BeginTime="00:00:00" AccelerationRatio="0.4" DecelerationRatio="0.6">
+                                            <SplineThicknessKeyFrame KeyTime="00:00:00" Value="-100,0,0,0" />
+                                            <SplineThicknessKeyFrame KeyTime="00:00:00.300" Value="-70,0,0,0" />
+                                        </ThicknessAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Border.Triggers>
+                    </Border>
+                    <Image Grid.Row="5" Source="Resources\LibraryLogo.png" HorizontalAlignment="Left" Margin="10 0 0 10"/>
+                </Grid>
+                <Frame Grid.Column="1" x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+                
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

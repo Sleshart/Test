@@ -1,0 +1,64 @@
+﻿<Window x:Class="HotToWalkToTheLibrary.ManForms.Autorisation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotToWalkToTheLibrary.ManForms"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Title="Autorisation" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border CornerRadius="25" Grid.Column="1" Height="400" Width="425" Margin="-25 0 0 0">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                            <RotateTransform Angle="-90" CenterX="0.5" CenterY="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#13131E" Offset="0.12"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Image Grid.Row="0" Name="CloseButton" Source="/Resources/Закрыть.png" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Margin="0 10 10 0" MouseEnter="CloseButton_MouseEnter" MouseLeftButtonDown="CloseButton_MouseLeftButtonDown" MouseLeave="CloseButton_MouseLeave"/>
+                <Image Source="pack://application:,,,/Resources/LibraryLogo.png" Height="300"/>
+            </Grid>
+        </Border>
+        <Border Background="{DynamicResource WhiteBlue}" CornerRadius="25" Grid.Column="0" Width="425">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="Авторизация" HorizontalAlignment="Center" Foreground="{DynamicResource DarkBlue}" VerticalAlignment="Center" FontSize="46" FontFamily="Calibri"/>
+                <TextBlock Name="LogText" Grid.Row="1" Text="Логин" Foreground="{DynamicResource DarkBlue}" Height="40" Width="250" FontSize="26" 
+                         VerticalAlignment="Center" HorizontalAlignment="Center" Padding="9 4 0 0" FontFamily="Calibri"/>
+                <TextBox Grid.Row="1" x:Name="Login" Background="Transparent" Height="40" Width="250" FontSize="26" VerticalContentAlignment="Center" 
+                         VerticalAlignment="Center" HorizontalAlignment="Center" BorderThickness="0 0 0 2" BorderBrush="{DynamicResource DarkBlue}" Foreground="{DynamicResource DarkBlue}" Padding="7 0 0 0" FontFamily="Calibri" TextChanged="Login_TextChanged" SelectionBrush="{DynamicResource DarkBlue}" Keyboard.KeyDown="Login_KeyDown"/>
+                <TextBlock Name="PassText" Grid.Row="2" Text="Пароль" Foreground="#13161F" Height="40" Width="250" FontSize="26" 
+                         VerticalAlignment="Center" HorizontalAlignment="Center" Padding="9 4 0 0" FontFamily="Calibri"/>
+                <PasswordBox PasswordChar="•" Grid.Row="2" x:Name="Password" Background="Transparent" Height="40" Width="250" FontSize="26" VerticalContentAlignment="Center" KeyDown="Password_KeyDown"
+                         VerticalAlignment="Center" HorizontalAlignment="Center" BorderThickness="0 0 0 2" BorderBrush="{DynamicResource DarkBlue}" Foreground="{DynamicResource DarkBlue}" Padding="7 0 35 0" FontFamily="Calibri" SelectionBrush="{DynamicResource DarkBlue}" PasswordChanged="Password_PasswordChanged"/>
+                <TextBox Visibility="Hidden" Grid.Row="2" x:Name="PassTextBox" Background="Transparent" Height="40" Width="250" FontSize="26" VerticalContentAlignment="Center" 
+                         VerticalAlignment="Center" HorizontalAlignment="Center" BorderThickness="0 0 0 2" BorderBrush="{DynamicResource DarkBlue}" Foreground="{DynamicResource DarkBlue}" Padding="7 0 35 0" FontFamily="Calibri" SelectionBrush="{DynamicResource DarkBlue}" TextChanged="PassTextBox_TextChanged"/>
+                <Border x:Name="Войти" Grid.Row="3" CornerRadius="25" Height="50" Width="150" VerticalAlignment="Center" HorizontalAlignment="Center" MouseLeftButtonDown="Войти_MouseLeftButtonDown" Background="{DynamicResource DarkBlue}">
+                    <TextBlock x:Name="Втекст" Background="Transparent" Text="Войти" Foreground="{DynamicResource WhiteBlue}" FontSize="22" FontFamily="Calibri" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+                </Border>
+                <Image Grid.Row="2" x:Name="HidePass" Source="/Resources/Hide.png" HorizontalAlignment="Right" Margin="0 0 90 0" Height="30" MouseLeftButtonUp="HidePass_MouseLeftButtonUp" MouseLeftButtonDown="HidePass_MouseLeftButtonDown"/>
+                <TextBlock x:Name="Error" Grid.Row="3" Text="Пароль или логин неверны." HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FF0049" Visibility="Hidden" FontSize="16"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

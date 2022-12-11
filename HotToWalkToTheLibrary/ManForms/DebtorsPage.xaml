@@ -1,0 +1,53 @@
+﻿<Page x:Class="HotToWalkToTheLibrary.ManForms.DebtorsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HotToWalkToTheLibrary.ManForms"
+      mc:Ignorable="d" 
+      d:DesignHeight="670" d:DesignWidth="980"
+      Title="DebtorsPage">
+
+    <Grid>
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" BorderThickness="2" BorderBrush="{DynamicResource WhiteBlue}" CornerRadius="17" Width="350" Height="40">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.115*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="/Resources/SearchIcon.png" Margin="0 5 0 5"/>
+                        <TextBlock x:Name="SearchText" Grid.Column="1" Background="Transparent" Text="Введите запрос" VerticalAlignment="Center" Foreground="{DynamicResource WhiteBlue}" FontSize="20" FontFamily="Calibri" Padding="7 0 0 0"/>
+                        <TextBox x:Name="Search" CaretBrush="{DynamicResource WhiteBlue}" Grid.Column="1" Background="Transparent" VerticalContentAlignment="Center" Foreground="{DynamicResource WhiteBlue}" FontSize="20" FontFamily="Calibri" Padding="7 0 0 0" BorderThickness="0" TextChanged="Search_TextChanged"/>
+                    </Grid>
+                </Border>
+                <Image x:Name="Reload" Grid.Column="0" Source="/Resources/ReloadDataGrid.png" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Margin="5 0 0 0" MouseLeftButtonDown="Reload_MouseLeftButtonDown"/>
+                <DataGrid HorizontalAlignment="Left" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Name="MainDataGrid" Grid.Row="1" IsReadOnly="True" AutoGenerateColumns="False" Foreground="{DynamicResource WhiteBlue}"
+                          ItemsSource="{Binding Main}" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" MaxWidth="980" FontSize="18" Height="auto" SelectionChanged="MainDataGrid_SelectionChanged">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID " Binding="{Binding Main_ID}" FontSize="18"/>
+                        <DataGridTextColumn Header="Имя " Binding="{Binding FIO}" FontSize="18" MaxWidth="200"/>
+                        <DataGridTextColumn Header="Полученная книга " Binding="{Binding M_Book}" FontSize="18" MaxWidth="170"/>
+                        <DataGridTextColumn Header="Где книга" Binding="{Binding WhereIsBook}" FontSize="18"/>
+                        <DataGridTextColumn Header="Отдана читателю " Binding="{Binding DateGet}" FontSize="18"/>
+                        <DataGridTextColumn Header="Крайний срок возврата " Binding="{Binding LastDate}" FontSize="18"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <TextBlock x:Name="Error" Grid.Row="2" Foreground="#FF0049" Visibility="Hidden" Text="Выберите запись!" FontSize="18" FontFamily="Calibri" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 5 0 0"/>
+                <Border x:Name="Debtor" Grid.Row="2" CornerRadius="20" Height="40" Width="300" Background="{DynamicResource WhiteBlue}" MouseLeftButtonDown="Debtor_MouseLeftButtonDown" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Margin="0 0 0 5">
+                    <TextBlock x:Name="Атекст" Background="Transparent" Text="Сформировать уведомление" Foreground="{DynamicResource DarkGray}" FontSize="20" FontFamily="Calibri" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
